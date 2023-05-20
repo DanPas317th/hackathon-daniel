@@ -9,6 +9,28 @@ var theWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday
 var theMonth = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 var monthLength = [31,28,31,30,31,30,31,31,30,31,30,31];
 
+var busyDays = [0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1];
+
+var eventData = 
+[
+    {
+      "day": 25,
+      "title": "Event 1",
+      "description": "Description of Event 1"
+    },
+    {
+      "day": 26,
+      "title": "Event 2",
+      "description": "Description of Event 2"
+    },
+    {
+      "day": 30,
+      "title": "Event 3",
+      "description": "Description of Event 3"
+    }
+];
+  
+
 var dayFirst = 1+week-day%7;
 var monthName = theMonth[month];
 
@@ -36,84 +58,84 @@ var inHtml = `
 div.innerHTML = inHtml;
 
 var daydiv = document.getElementById("days");
+var isEvent = true;
 
 var tableHTML = "";
 var row = "";
 var weekLimit = 1;
 for (var i = 1; i <= monthL; i++) {
     if (i === 1 || (i - 1) % 7 === 0) {
-      row += "<tr>";
+        row += "<tr>";
     }
-  
-    if (i < dayFirst) {
-      row += "<td></td>";
-    } else {
-      row += `<td><button class="cell">` + i + "</button></td>";
-    }
-  
-    if (i % 7 === 0 || i === monthL) {
-      row += "</tr>";
-    }
-}
 
+    event = null;
+
+    for (var j = 0; j < eventData.length; j++) {
+        if(eventData[j].day == i){
+            event = eventData[j];
+            break;
+        }
+    }
+
+    if (i < dayFirst) {
+        row += "<td></td>";
+    } else {
+        if(i < day){
+            row += `<td><button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#busyModal`+i+`" id="cell" disabled>` + i + `</button></td>`;
+        } else {
+            if (event) {
+                row += `<td>
+                            <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#busyModal`+i+`" id="cell">` + i + `</button>
+                        </td>
+                        <div class="modal fade" id="busyModal`+i+`" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">`+event.title+`</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>`+event.description+`</p>
+                                        <p>Sorry for the inconvenience.</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>`;
+            } else {
+            row += `<td>
+            <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal" id="cell">` + i + `</button>
+          </td>
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Oops... nothing interesting.</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <p>Maybe you want to add a city event there?</p>
+                  <p>If yes, click Add Event.</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button"
+                  button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Add Event</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>`;
+      }
+    }
+  }
+
+  if (i % 7 === 0 || i === monthL) {
+    row += "</tr>";
+  }
+}
 tableHTML += row;
 daydiv.innerHTML = tableHTML;
-
-var eventForm = `
-<form id="eventForm" style="display:none">
-    <div id="modal">
-        <label for="eventName">Event Name:</label><br>
-        <input type="text" id="eventName" name="eventName"><br>
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email"><br>
-        <button type="button" id="saveEventButton">Save Event</button>
-    </div>
-</form>
-`;
-document.body.insertAdjacentHTML('beforeend', eventForm);
-var modal = document.getElementById("eventForm");
-var saveEventButton = document.getElementById("saveEventButton");
-var cells = document.querySelectorAll(".cell");
-
-// Function to save the event
-window.saveEvent = function(day) {
-    var name = document.getElementById("eventName").value;
-    var email = document.getElementById("email").value;
-
-    // Create a full date string in the format YYYY-MM-DD
-    var dateString = year + "-" + (month+1) + "-" + day;
-    
-    // Create an event object
-    var event = {
-        date: dateString,
-        name: name,
-        email: email
-    };
-
-    // Save the event to localStorage
-    localStorage.setItem('event-' + dateString, JSON.stringify(event));
-    
-    // Close the modal when done
-    modal.style.display = "none";
-
-    // Load an event from localStorage
-    var storedEvent = localStorage.getItem('event-' + dateString);
-    if (storedEvent) {
-        var event = JSON.parse(storedEvent);
-        console.log('Loaded event:', event);
-        console.log('Date of event:', event.date);
-    }
-};
-
-cells.forEach(function(cell) {
-    cell.addEventListener("click", function() {
-        var day = this.textContent;
-        console.log("Button clicked for day: " + day);
-
-        // Set the modal to display with the correct event info
-        modal.style.display = "block";
-
-        // Pass the day to the saveEvent function when the button is clicked
-        saveEventButton.onclick = function() { saveEvent(day); };
-    });
-});

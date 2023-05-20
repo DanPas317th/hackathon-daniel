@@ -4,3 +4,15 @@ body{
     background-size: cover;
     color: aliceblue;
 }
+table {
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    border: 1px solid black;
+    padding: 10px;
+  }
+#cell{
+    padding: 20px;
+    margin: 1px;
+}

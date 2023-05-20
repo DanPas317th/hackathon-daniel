@@ -1,0 +1,18 @@
+[
+    {
+      "day": 25,
+      "title": "Event 1",
+      "description": "Description of Event 1"
+    },
+    {
+      "day": 26,
+      "title": "Event 2",
+      "description": "Description of Event 2"
+    },
+    {
+      "day": 30,
+      "title": "Event 3",
+      "description": "Description of Event 3"
+    }
+  ]
+  
