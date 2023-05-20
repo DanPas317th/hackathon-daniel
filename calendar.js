@@ -15,18 +15,18 @@ var eventData =
 [
     {
       "day": 25,
-      "title": "Event 1",
-      "description": "Description of Event 1"
+      "title": "Międzynarodowy Dzień Kotów",
+      "description": "Zapraszamy wszystkich miłośników kotów na nasze coroczne świętowanie Dnia Kotów. Przyjdźcie i dołączcie do zabawy, przynosząc ze sobą swoje futrzane przyjaciół. Będzie wiele aktywności, gier i zabaw z kotami, a także konkursy z nagrodami. Miejsce: Centralny Park Miejski, godzina: 10:00."
     },
     {
       "day": 26,
-      "title": "Event 2",
-      "description": "Description of Event 2"
+      "title": "Koncert Rockowy w Amfiteatrze",
+      "description": "Cieszymy się, że możemy zaprosić wszystkich miłośników muzyki rockowej na koncert na żywo w naszym lokalnym amfiteatrze. Na scenie zagrają znane zespoły rockowe. Przyjdźcie i doświadczcie mocy prawdziwego rocka! Miejsce: Amfiteatr Miejski, godzina: 20:00."
     },
     {
       "day": 30,
-      "title": "Event 3",
-      "description": "Description of Event 3"
+      "title": "Festiwal Kulinarny",
+      "description": "Zapraszamy na Festiwal Kulinarny! Będzie to doskonała okazja, aby spróbować różnych smaków z całego świata. Czeka na was wiele stoisk z jedzeniem, pokazy gotowania na żywo, a także konkursy kulinarne. Miejsce: Rynek Główny, godzina: 11:00."
     }
 ];
   
@@ -38,9 +38,9 @@ var div = document.getElementById("calendar");
 var monthL = monthLength[month];
 
 var inHtml = `
-<h1>Current month:`+monthName+`</h1>
-<table>
-    <tr>
+<h1 style="color:aliceblue;">Current month:`+monthName+`</h1>
+<table >
+    <tr style="color:aliceblue;">
         <th>Monday</th>
         <th>Tuesday</th>
         <th>Wednesday</th>
@@ -124,7 +124,7 @@ for (var i = 1; i <= monthL; i++) {
                 <div class="modal-footer">
                   <button type="button"
                   button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Add Event</button>
+                        <button type="button" class="btn btn-primary" id="addEvent">Add Event</button>
                       </div>
                     </div>
                   </div>
@@ -139,3 +139,13 @@ for (var i = 1; i <= monthL; i++) {
 }
 tableHTML += row;
 daydiv.innerHTML = tableHTML;
+
+function openNewEventPage() {
+    window.open('event.html', '_blank');
+    body.innerHTML = `
+    
+    `;
+  }
+
+  document.getElementById('addEvent').addEventListener('click', openNewEventPage);
+
