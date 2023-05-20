@@ -87,7 +87,6 @@ window.saveEvent = function(day) {
     var event = {
         date: dateString,
         name: name,
-        description: description,
         email: email
     };
 

@@ -28,7 +28,7 @@ function checkEvents() {
           from: 'danpas317@gmail.com',
           to: event.email,
           subject: 'Event Reminder: ' + event.name,
-          text: 'This is a reminder for your event: ' + event.name + '. '
+          text: 'This is a reminder for your event: ' + event.name
         };
         transporter.sendMail(mailOptions, function(error, info){
           if (error) {
@@ -43,7 +43,7 @@ function checkEvents() {
 }
 
 // Schedule the task to run at 9 AM every day
-cron.schedule('42 15 * * *', function() {
+cron.schedule('* 17 * * *', function() {
   console.log('Running the check events task.');
   checkEvents();
 });
