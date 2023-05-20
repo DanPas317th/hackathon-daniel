@@ -6,7 +6,7 @@ var week = today.getDay();
 var day = today.getDate();
 
 var theWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-var theMonth = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+var theMonth = ["Styczeń","Luty","Marzec","Kwiecień","Maj","Czerwiec","Lipiec","Sierpień","Wrzesień","Październik","Listopad","Grudzień"];
 var monthLength = [31,28,31,30,31,30,31,31,30,31,30,31];
 
 var busyDays = [0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1];
@@ -14,31 +14,32 @@ var busyDays = [0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1
 var eventData = 
 [
     {
-      "day": 25,
-      "title": "Międzynarodowy Dzień Kotów",
-      "description": "Zapraszamy wszystkich miłośników kotów na nasze coroczne świętowanie Dnia Kotów. Przyjdźcie i dołączcie do zabawy, przynosząc ze sobą swoje futrzane przyjaciół. Będzie wiele aktywności, gier i zabaw z kotami, a także konkursy z nagrodami. Miejsce: Centralny Park Miejski, godzina: 10:00."
+      day: 23,
+      title: "Festiwal Kulinarny 'Smakowite Miasto'",
+      description: "Przyłącz się do tego festiwalu kulinarnego, który odbędzie się w różnych restauracjach i kawiarniach w mieście. Będzie to okazja do spróbowania różnorodnych potraw, od lokalnych specjałów po dania kuchni międzynarodowej. W trakcie festiwalu będą również organizowane warsztaty kulinarne i prezentacje mistrzów kuchni."
     },
     {
-      "day": 26,
-      "title": "Koncert Rockowy w Amfiteatrze",
-      "description": "Cieszymy się, że możemy zaprosić wszystkich miłośników muzyki rockowej na koncert na żywo w naszym lokalnym amfiteatrze. Na scenie zagrają znane zespoły rockowe. Przyjdźcie i doświadczcie mocy prawdziwego rocka! Miejsce: Amfiteatr Miejski, godzina: 20:00."
+      day: 25,
+      endDate: 27,
+      title: "Targi Innowacji i Technologii 'Miasto Przyszłości'",
+      description: "Ta trzydniowa wystawa będzie skupiała się na nowych innowacjach i technologiach, które mają wpływ na rozwój miasta. Od inteligentnych rozwiązań w dziedzinie transportu i energii odnawialnej po projekty dotyczące zrównoważonego rozwoju urbanistycznego. Będą dostępne stoiska wystawców, panele dyskusyjne z ekspertami i pokazy nowych technologii."
     },
     {
-      "day": 30,
-      "title": "Festiwal Kulinarny",
-      "description": "Zapraszamy na Festiwal Kulinarny! Będzie to doskonała okazja, aby spróbować różnych smaków z całego świata. Czeka na was wiele stoisk z jedzeniem, pokazy gotowania na żywo, a także konkursy kulinarne. Miejsce: Rynek Główny, godzina: 11:00."
+      day: 28,
+      title: "Noc Muzeów i Galerii",
+      description: "Weź udział w wyjątkowym wydarzeniu, podczas którego muzea i galerie w całym mieście będą otwarte do późnych godzin nocnych. To doskonała okazja, aby zwiedzić różnorodne kolekcje sztuki, zobaczyć wystawy tymczasowe i wziąć udział w specjalnych prelekcjach i warsztatach."
     },
     {
-        "day": 28,
-        "title": "Koncert Rockowy w Amfiteatrze",
-        "description": "Cieszymy się, że możemy zaprosić wszystkich miłośników muzyki rockowej na koncert na żywo w naszym lokalnym amfiteatrze. Na scenie zagrają znane zespoły rockowe. Przyjdźcie i doświadczcie mocy prawdziwego rocka! Miejsce: Amfiteatr Miejski, godzina: 20:00."
-      },
-      {
-        "day": 22,
-        "title": "Festiwal",
-        "description": "Zapraszamy na Festiwal Kulinarny! Będzie to doskonała okazja, aby spróbować różnych smaków z całego świata. Czeka na was wiele stoisk z jedzeniem, pokazy gotowania na żywo, a także konkursy kulinarne. Miejsce: Rynek Główny, godzina: 11:00."
-      }
-];
+      day: 30,
+      title: "Bieg dla Dobrej Przyczyny",
+      description: "Dołącz do społeczności miasta w tym charytatywnym biegu, mającym na celu wsparcie lokalnych organizacji charytatywnych. Trasa biegu przebiega przez najpiękniejsze miejsca w mieście, a każda opłata startowa idzie na rzecz wybranej organizacji charytatywnej. Niezależnie od tego, czy jesteś doświadczonym biegaczem czy dopiero zaczynasz swoją przygodę z bieganiem, to wydarzenie jest dla wszystkich."
+    },
+    {
+      day: 31,
+      title: "Piknik Filmowy w Parku",
+      description: "Przygotuj swoje kocyki i przekąski, aby wziąć udział w pikniku filmowym w jednym z najpiękniejszych parków w mieście. Na dużym ekranie zostaną wyświetlone klasyczne filmy, a Ty będziesz mógł spędzić czas na świeżym powietrzu w otoczeniu zieleni."
+    }
+  ];
   
 
 var dayFirst = 1+week-day%7;
@@ -48,16 +49,26 @@ var div = document.getElementById("calendar");
 var monthL = monthLength[month];
 
 var inHtml = `
-<h1 style="color:aliceblue;">Current month: `+monthName+`</h1>
+<div style="display: flex;">
+  <div id="cols1">
+  <h1 id="title">ResPlan</h1>
+  <p>Odkryj tętniące życiem wydarzenia w Rzeszowie! Przejrzyj nasz kalendarz, aby być na bieżąco z lokalnymi festiwalami, koncertami i innymi atrakcjami. 
+    A jeśli masz własne wydarzenie, dodaj je samodzielnie i podziel się z innymi entuzjastami kultury i rozrywki w naszym pięknym mieście!</p>
+  </div>
+<div id="cols2">
+<h1 style="color:aliceblue;">Aktualny miesiąc: </h1>
+<h1 id = "month">`+monthName+`</h1>
+</div>
+</div>
 <table >
     <tr style="color:aliceblue;">
-        <th>Monday</th>
-        <th>Tuesday</th>
-        <th>Wednesday</th>
-        <th>Thursday</th>
-        <th>Friday</th>
-        <th>Saturday</th>
-        <th>Sunday</th>
+        <th>Pn</th>
+        <th>Wt</th>
+        <th>Śr</th>
+        <th>Czw</th>
+        <th>Pt</th>
+        <th>Sb</th>
+        <th>Ndz</th>
     </tr>
     <td colspan="7">
         <table id="days">
@@ -93,7 +104,7 @@ for (var i = 1; i <= monthL; i++) {
       row += "<td></td>";
     } else {
       if (i < day) {
-        row += `<td><button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#busyModal` +num +
+        row += `<td><button type="button" class="btn btn-secondary btn-lg" data-bs-toggle="modal" data-bs-target="#busyModal` +num +
           `" id="cell" disabled>` +num +`</button></td>`;
       } else {
         buttonId = i;
@@ -101,7 +112,7 @@ for (var i = 1; i <= monthL; i++) {
         if (event) {
           row += `<td>
             <div>
-              <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#busyModal` +num +`" id="cell">` +num +`</button>
+              <button type="button" class="btn btn-info btn-lg" data-bs-toggle="modal" data-bs-target="#busyModal` +num +`" id="cell">` +num +`</button>
               <div class="modal fade" id="busyModal` +num +`" tabindex="-1" aria-labelledby="exampleModalLabel${num}" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">
@@ -113,10 +124,10 @@ for (var i = 1; i <= monthL; i++) {
                       <p>` +
             event.description +
             `</p>
-                      <p>Sorry for the inconvenience.</p>
+                      <p>(Ta data jest zajęta)</p>
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Zamknij</button>
                     </div>
                   </div>
                 </div>
@@ -131,16 +142,15 @@ for (var i = 1; i <= monthL; i++) {
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="exampleModalLabel${num}">Oops... nothing interesting. (` +num +" " +monthName +" " +year +`)</h1>
+                      <h1 class="modal-title fs-5" id="exampleModalLabel${num}">Nic ciekawego...</h1>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                      <p>Maybe you want to add a city event there?</p>
-                      <p>If yes, click Add Event.</p>
+                      <p>Jeśli chcesz dodać wydarzenie miejskie do kalendarza, proszę kliknij "Dodaj Wydarzenie".</p>
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary" id="addEvent" onclick="openNewEventPage(${num})">Add Event</button>
+                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Zamknij</button>
+                      <button type="button" class="btn btn-primary" id="addEvent" onclick="openNewEventPage(${num})">Dodaj Wydarzenie</button>
                     </div>
                   </div>
                 </div>
@@ -160,10 +170,8 @@ for (var i = 1; i <= monthL; i++) {
 tableHTML += row;
 daydiv.innerHTML = tableHTML;
 
-
-
-
-    
+// Instead of export let eventData = [];
+window.eventData = [];
 
   
   // Modyfikujemy funkcję openNewEventPage, aby mogła przyjmować numer dnia
@@ -177,6 +185,9 @@ daydiv.innerHTML = tableHTML;
     localStorage.setItem('day', dayNumber);
     localStorage.setItem('monthName', monthName);
     localStorage.setItem('year', year);
-  
+
     window.open('event.html', '_blank');
+
   }  
+
+  

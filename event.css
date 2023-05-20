@@ -5,7 +5,7 @@ body {
   align-items: center;
   height: 100vh;
 
-  background-image: url("event.png");
+  background-image: url("event.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   color: aliceblue;
@@ -18,8 +18,8 @@ h1, h2, p {
 color: aliceblue;
 }
 h1, p{
-  margin-left: 10%;
-  margin-right: 10%
+  margin-left: 20%;
+  margin-right: 20%
 }
 
 
