@@ -8,7 +8,10 @@ console.log(year);
 
 // Now generate the UI
 document.body.innerHTML = `
-            <div><h1>Właśnie tworzysz wydarzenie na dzień:</h1>  
+            <div><div style="display:flex;">
+            <img src="logo.png" style="width:48px;height:48px;">
+            <h1>Właśnie tworzysz wydarzenie na dzień:</h1>
+            </div>
                 <h1>`+ dayNumber+" "+monthName+" "+year+`</h1></div>
                 <p>Proszę o podanie informacji o nim.</p></div>
                 <div class="col-md-4 position-relative">

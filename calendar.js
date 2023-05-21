@@ -56,7 +56,10 @@ var monthL = monthLength[month];
 var inHtml = `
 <div style="display: flex;">
   <div id="cols1">
+  <div style="display:flex;">
+  <img src="logo.png" style="width:48px;height:48px;margin-right:120px;">
   <h1 id="title">ResPlan</h1>
+  </div>
   <p>Odkryj tętniące życiem wydarzenia w Rzeszowie! Przejrzyj nasz kalendarz, aby być na bieżąco z lokalnymi festiwalami, koncertami i innymi atrakcjami. 
     A jeśli masz własne wydarzenie, dodaj je samodzielnie i podziel się z innymi entuzjastami kultury i rozrywki w naszym pięknym mieście!</p>
   </div>
