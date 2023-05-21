@@ -7,12 +7,7 @@ console.log(monthName);
 console.log(year);
 
 // Now generate the UI
-document.body.innerHTML = 
-/* <div class="video-container">
-        <video autoplay loop muted class="video-background">
-          <source src="rzeszow.mp4" type="video/mp4">
-        </video>
-        <div class="content"> */`
+document.body.innerHTML = `
             <div><h1>Właśnie tworzysz wydarzenie na dzień:</h1>  
                 <h1>`+ dayNumber+" "+monthName+" "+year+`</h1></div>
                 <p>Proszę o podanie informacji o nim.</p></div>
@@ -25,21 +20,26 @@ document.body.innerHTML =
               </div>
               <div class="col-md-4 position-relative">
                 <label for="validationTooltip02" class="form-label">Opis</label>
-                <span class="input-group-text">Opis</span>
                 <textarea class="form-control" aria-label="Opis"></textarea>
                 <div class="valid-tooltip">
                   Bardzo ciekawe...
                 </div>
               </div>
-              <div class="col-md-4 position-relative">
-                <label for="validationTooltipUsername" class="form-label">Email</label>
-                <div class="input-group has-validation">
-                  <span class="input-group-text" id="validationTooltipUsernamePrepend">Email</span>
-                  <input type="email" class="form-control" id="validationTooltipUsername" aria-describedby="validationTooltipUsernamePrepend" required>
-                  <div class="invalid-tooltip">
-                    Wprowadź prawidłowy email
-                  </div>
-                </div>
+
+              <div class="input-group">
+              <label>Zdjęcie</label>
+              <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Załaduj">
+              <button class="btn btn-outline-primary" type="button" id="inputGroupFileAddon04">Załaduj</button>
+              </div>
+
+              <div class="form-floating mb-3">
+              <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+              <label for="floatingInput">Email address</label>
+              </div>
+
+              <div class="form-floating">
+              <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+              <label for="floatingPassword">Password</label>
               </div>
               <div class="col-12">
                 <button class="btn btn-success" type="submit">Podtwierdź</button>

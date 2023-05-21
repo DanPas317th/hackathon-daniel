@@ -16,28 +16,33 @@ var eventData =
     {
       day: 23,
       title: "Festiwal Kulinarny 'Smakowite Miasto'",
-      description: "Przyłącz się do tego festiwalu kulinarnego, który odbędzie się w różnych restauracjach i kawiarniach w mieście. Będzie to okazja do spróbowania różnorodnych potraw, od lokalnych specjałów po dania kuchni międzynarodowej. W trakcie festiwalu będą również organizowane warsztaty kulinarne i prezentacje mistrzów kuchni."
+      description: "Przyłącz się do tego festiwalu kulinarnego, który odbędzie się w różnych restauracjach i kawiarniach w mieście. Będzie to okazja do spróbowania różnorodnych potraw, od lokalnych specjałów po dania kuchni międzynarodowej. W trakcie festiwalu będą również organizowane warsztaty kulinarne i prezentacje mistrzów kuchni.",
+      image: "1.jpg"
     },
     {
       day: 25,
       endDate: 27,
       title: "Targi Innowacji i Technologii 'Miasto Przyszłości'",
-      description: "Ta trzydniowa wystawa będzie skupiała się na nowych innowacjach i technologiach, które mają wpływ na rozwój miasta. Od inteligentnych rozwiązań w dziedzinie transportu i energii odnawialnej po projekty dotyczące zrównoważonego rozwoju urbanistycznego. Będą dostępne stoiska wystawców, panele dyskusyjne z ekspertami i pokazy nowych technologii."
+      description: "Ta trzydniowa wystawa będzie skupiała się na nowych innowacjach i technologiach, które mają wpływ na rozwój miasta. Od inteligentnych rozwiązań w dziedzinie transportu i energii odnawialnej po projekty dotyczące zrównoważonego rozwoju urbanistycznego. Będą dostępne stoiska wystawców, panele dyskusyjne z ekspertami i pokazy nowych technologii.",
+      image: "2.jpg"
     },
     {
       day: 28,
       title: "Noc Muzeów i Galerii",
-      description: "Weź udział w wyjątkowym wydarzeniu, podczas którego muzea i galerie w całym mieście będą otwarte do późnych godzin nocnych. To doskonała okazja, aby zwiedzić różnorodne kolekcje sztuki, zobaczyć wystawy tymczasowe i wziąć udział w specjalnych prelekcjach i warsztatach."
+      description: "Weź udział w wyjątkowym wydarzeniu, podczas którego muzea i galerie w całym mieście będą otwarte do późnych godzin nocnych. To doskonała okazja, aby zwiedzić różnorodne kolekcje sztuki, zobaczyć wystawy tymczasowe i wziąć udział w specjalnych prelekcjach i warsztatach.",
+      image: "3.jpg"
     },
     {
       day: 30,
       title: "Bieg dla Dobrej Przyczyny",
-      description: "Dołącz do społeczności miasta w tym charytatywnym biegu, mającym na celu wsparcie lokalnych organizacji charytatywnych. Trasa biegu przebiega przez najpiękniejsze miejsca w mieście, a każda opłata startowa idzie na rzecz wybranej organizacji charytatywnej. Niezależnie od tego, czy jesteś doświadczonym biegaczem czy dopiero zaczynasz swoją przygodę z bieganiem, to wydarzenie jest dla wszystkich."
+      description: "Dołącz do społeczności miasta w tym charytatywnym biegu, mającym na celu wsparcie lokalnych organizacji charytatywnych. Trasa biegu przebiega przez najpiękniejsze miejsca w mieście, a każda opłata startowa idzie na rzecz wybranej organizacji charytatywnej. Niezależnie od tego, czy jesteś doświadczonym biegaczem czy dopiero zaczynasz swoją przygodę z bieganiem, to wydarzenie jest dla wszystkich.",
+      image:"4.png"
     },
     {
       day: 31,
       title: "Piknik Filmowy w Parku",
-      description: "Przygotuj swoje kocyki i przekąski, aby wziąć udział w pikniku filmowym w jednym z najpiękniejszych parków w mieście. Na dużym ekranie zostaną wyświetlone klasyczne filmy, a Ty będziesz mógł spędzić czas na świeżym powietrzu w otoczeniu zieleni."
+      description: "Przygotuj swoje kocyki i przekąski, aby wziąć udział w pikniku filmowym w jednym z najpiękniejszych parków w mieście. Na dużym ekranie zostaną wyświetlone klasyczne filmy, a Ty będziesz mógł spędzić czas na świeżym powietrzu w otoczeniu zieleni.",
+      image: "5.jpg"
     }
   ];
   
@@ -124,6 +129,7 @@ for (var i = 1; i <= monthL; i++) {
                       <p>` +
             event.description +
             `</p>
+            <img src="${event.image}" style="max-width: 100%;">
                       <p>(Ta data jest zajęta)</p>
                     </div>
                     <div class="modal-footer">
@@ -188,6 +194,12 @@ window.eventData = [];
 
     window.open('event.html', '_blank');
 
+
+
   }  
+
+  function loginPage(){
+    window.open('login.html', '_blank');
+  }
 
   

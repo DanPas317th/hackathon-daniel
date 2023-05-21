@@ -1,0 +1,57 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  
+    background-image: url("login.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: aliceblue;
+    text-align: center;
+    margin-left: 125px;
+    margin-right: 125px;
+  }
+  
+  h1, h2, p {
+  color: aliceblue;
+  }
+  h1, p{
+    margin-left: 125px;
+    margin-right: 125px;
+  }
+  
+  .form-floating{
+    padding: 10px;
+  }
+  
+  .input-group{
+    width: 500px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+  }
+  label{
+    font-size: 32px;
+    padding: 20px;
+  }
+  
+  .form-floating label{
+    padding: 10px;
+    font-size: 16px;
+  }
+  #card{
+    text-align: left;
+  }
+
+  #card label{
+    font-size: 16px;
+  }
+  #card input{
+    width: 100px;
+  }
+  #card #number{
+    width: 250px;
+  }
+  
+  
