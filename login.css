@@ -40,18 +40,4 @@ body {
     padding: 10px;
     font-size: 16px;
   }
-  #card{
-    text-align: left;
-  }
-
-  #card label{
-    font-size: 16px;
-  }
-  #card input{
-    width: 100px;
-  }
-  #card #number{
-    width: 250px;
-  }
-  
   

@@ -39,10 +39,27 @@ document.body.innerHTML = `
               <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
               <label for="floatingInput">Email address</label>
               </div>
-
               <div class="form-floating">
               <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
               <label for="floatingPassword">Password</label>
+              </div>
+
+              <div id="card">
+              <div class="mb-0">
+              <label for="formGroupExampleInput" class="form-label">Numer Karty</label>
+              <input type="number" class="form-control" placeholder="---- ---- ---- ----" id="number">
+              </div>
+              <div class="mb-0">
+              <label for="formGroupExampleInput" class="form-label">CVC</label>
+              <input type="number" class="form-control" id="formGroupExampleInput" placeholder="---">
+              </div>
+              <div class="mb-0">
+                <label for="formGroupExampleInput" class="form-label">Wygaśnięcie</label>
+              <input type="datetime" class="form-control" id="formGroupExampleInput" id="card" placeholder="MM / YY">
+              </div>
+
+              <h1>3zł</h1>
+
               </div>
               <div class="col-12">
                 <button class="btn btn-success" type="submit">Podtwierdź</button>
